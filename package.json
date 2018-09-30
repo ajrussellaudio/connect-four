@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha \"./src/*.spec.js\" --require babel-core/register",
+    "test": "mocha \"./src/specs/*.spec.js\" --require babel-core/register",
     "test:watch": "npm test -- --watch"
   },
   "keywords": [],
