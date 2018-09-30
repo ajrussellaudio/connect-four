@@ -2,10 +2,14 @@ import { expect } from 'chai';
 
 import { makeBoard, checkWin } from '../';
 
-import { verticalRedVictory, horizontalYellowVictory } from './testBoards';
+import {
+  verticalRedVictory,
+  horizontalYellowVictory,
+  diagonalUpwardsRedVictory
+} from './testBoards';
 
 describe('checkWin', () => {
-  describe.skip('vertical victory', () => {
+  describe('vertical victory', () => {
     let board;
 
     beforeEach(() => {
@@ -17,7 +21,10 @@ describe('checkWin', () => {
       expect(colour).to.equal('R');
     });
 
-    it('should return the coordinates of the winning line');
+    it('should return the coordinates of the winning line', () => {
+      const { coords } = checkWin(board);
+      expect(coords).to.eql([[0, 1], [1, 1], [2, 1], [3, 1]]);
+    });
   });
 
   describe('horizontal victory', () => {
@@ -38,5 +45,21 @@ describe('checkWin', () => {
     });
   });
 
-  it('should return the winning colour, diagonal');
+  describe('diagonal upwards victory', () => {
+    let board;
+
+    beforeEach(() => {
+      board = makeBoard(diagonalUpwardsRedVictory);
+    });
+
+    it('should return the winning colour', () => {
+      const { colour } = checkWin(board);
+      expect(colour).to.equal('R');
+    });
+
+    it('should return the coordinates of the winning line', () => {
+      const { coords } = checkWin(board);
+      expect(coords).to.eql([[0, 1], [1, 2], [2, 3], [3, 4]]);
+    });
+  });
 });

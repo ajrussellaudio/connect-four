@@ -1,4 +1,4 @@
-export const diagonalRedVictory = `
+export const diagonalUpwardsRedVictory = `
   [ ][ ][ ][ ][ ][ ][ ]
   [ ][ ][ ][ ][ ][ ][ ]
   [ ][ ][ ][ ][R][ ][ ]
