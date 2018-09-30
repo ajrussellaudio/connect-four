@@ -25,4 +25,4 @@ npm test
 - [Mocha](https://mochajs.org/) - JavaScript test framework
 - [Chai](https://www.chaijs.com/) - Assertion library for BDD-style testing
 - [Babel](https://babeljs.io/) - Transpiler to enable ES6+ features in Node
-- [Lodash] - Utility library, used for zipping multidimensional arrays and for generating ranges
+- [Lodash](https://lodash.com/) - Utility library, used for zipping multidimensional arrays and for generating ranges
