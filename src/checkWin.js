@@ -5,7 +5,8 @@ export default board => {
   return (
     horizontalWinDetails(reversedBoard) ||
     verticalWinDetails(reversedBoard) ||
-    diagonalUpWinDetails(reversedBoard)
+    diagonalUpWinDetails(reversedBoard) ||
+    diagonalDownWinDetails(reversedBoard)
   );
 };
 
@@ -81,5 +82,32 @@ const diagonalUpWinDetails = board => {
       }
     });
   });
+  return details;
+};
+
+const diagonalDownWinDetails = board => {
+  let details;
+  board.forEach((row, rowIndex) => {
+    row.forEach((cell, columnIndex) => {
+      if (
+        rowIndex >= 3 &&
+        cell &&
+        cell === board[rowIndex - 1][columnIndex + 1] &&
+        cell === board[rowIndex - 2][columnIndex + 2] &&
+        cell === board[rowIndex - 3][columnIndex + 3]
+      ) {
+        details = {
+          colour: cell,
+          coords: [
+            [rowIndex, columnIndex],
+            [rowIndex - 1, columnIndex + 1],
+            [rowIndex - 2, columnIndex + 2],
+            [rowIndex - 3, columnIndex + 3]
+          ]
+        };
+      }
+    });
+  });
+  console.log(details);
   return details;
 };

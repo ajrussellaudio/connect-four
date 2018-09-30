@@ -1,11 +1,3 @@
-export const diagonalUpwardsRedVictory = `
-  [ ][ ][ ][ ][ ][ ][ ]
-  [ ][ ][ ][ ][ ][ ][ ]
-  [ ][ ][ ][ ][R][ ][ ]
-  [ ][ ][ ][R][Y][Y][ ]
-  [ ][ ][R][Y][R][Y][ ]
-  [ ][R][Y][Y][R][Y][R]`;
-
 export const horizontalYellowVictory = `
   [ ][ ][ ][ ][ ][ ][ ]
   [ ][ ][ ][ ][ ][ ][ ]
@@ -21,3 +13,19 @@ export const verticalRedVictory = `
   [ ][R][Y][ ][ ][ ][ ]
   [ ][R][Y][ ][ ][ ][ ]
   [ ][R][Y][ ][ ][ ][ ]`;
+
+export const diagonalUpwardsRedVictory = `
+  [ ][ ][ ][ ][ ][ ][ ]
+  [ ][ ][ ][ ][ ][ ][ ]
+  [ ][ ][ ][ ][R][ ][ ]
+  [ ][ ][ ][R][Y][Y][ ]
+  [ ][ ][R][Y][R][Y][ ]
+  [ ][R][Y][Y][R][Y][R]`;
+
+export const diagonalDownwardsYellowVictory = `
+  [ ][ ][ ][ ][ ][ ][ ]
+  [ ][ ][ ][ ][ ][ ][ ]
+  [ ][Y][ ][ ][ ][ ][ ]
+  [ ][R][Y][ ][ ][ ][ ]
+  [ ][R][Y][Y][ ][ ][ ]
+  [ ][R][Y][R][Y][ ][ ]`;
