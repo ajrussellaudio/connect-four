@@ -6,7 +6,14 @@ The brief for this coding challenge was simple:
 
 An example of a Connect Four board was given:
 
-> [ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ] > [ ][ ][ ][ ][R][ ][ ][ ][ ][ ][R][y][Y][ ] > [ ][ ][R][y][R][y][ ][ ][R][y][Y][r][Y][r]
+```
+  [ ][ ][ ][ ][ ][ ][ ]  
+  [ ][ ][ ][ ][ ][ ][ ]  
+  [ ][ ][ ][ ][R][ ][ ]  
+  [ ][ ][ ][R][Y][Y][ ]  
+  [ ][ ][R][Y][R][Y][ ]  
+  [ ][R][Y][Y][R][Y][R]
+```
 
 With a description of the expected output for the above:
 
