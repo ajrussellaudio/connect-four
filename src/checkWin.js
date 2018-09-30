@@ -1,4 +1,5 @@
 import { transpose, reverse } from './manipulations';
+import { zip, zipWith, range } from 'lodash';
 
 export default board => {
   const defaultDetails = {
@@ -15,24 +16,21 @@ export default board => {
   );
 };
 
+const fourInARow = cells =>
+  cells.join('') === 'RRRR' || cells.join('') === 'YYYY';
+
 const horizontalWinDetails = board => {
   let details;
   board.forEach((row, rowIndex) => {
     row.forEach((cell, columnIndex) => {
-      if (
-        cell &&
-        cell === row[columnIndex + 1] &&
-        cell === row[columnIndex + 2] &&
-        cell === row[columnIndex + 3]
-      ) {
+      const nextFourCells = row.slice(columnIndex, columnIndex + 4);
+      if (fourInARow(nextFourCells)) {
         details = {
           colour: cell,
-          coords: [
-            [rowIndex, columnIndex],
-            [rowIndex, columnIndex + 1],
-            [rowIndex, columnIndex + 2],
-            [rowIndex, columnIndex + 3]
-          ]
+          coords: zipWith(range(columnIndex, columnIndex + 4), columnIndex => [
+            rowIndex,
+            columnIndex
+          ])
         };
       }
     });
@@ -44,20 +42,14 @@ const verticalWinDetails = board => {
   let details;
   transpose(board).forEach((column, columnIndex) => {
     column.forEach((cell, rowIndex) => {
-      if (
-        cell &&
-        cell === column[rowIndex + 1] &&
-        cell === column[rowIndex + 2] &&
-        cell === column[rowIndex + 3]
-      ) {
+      const nextFourCells = column.slice(rowIndex, rowIndex + 4);
+      if (fourInARow(nextFourCells)) {
         details = {
           colour: cell,
-          coords: [
-            [rowIndex, columnIndex],
-            [rowIndex + 1, columnIndex],
-            [rowIndex + 2, columnIndex],
-            [rowIndex + 3, columnIndex]
-          ]
+          coords: zipWith(range(rowIndex, rowIndex + 4), rowIndex => [
+            rowIndex,
+            columnIndex
+          ])
         };
       }
     });
@@ -70,19 +62,20 @@ const diagonalUpWinDetails = board => {
   board.forEach((row, rowIndex) => {
     row.forEach((cell, columnIndex) => {
       if (
-        cell &&
-        cell === board[rowIndex + 1][columnIndex + 1] &&
-        cell === board[rowIndex + 2][columnIndex + 2] &&
-        cell === board[rowIndex + 3][columnIndex + 3]
+        rowIndex < 3 &&
+        fourInARow([
+          cell,
+          board[rowIndex + 1][columnIndex + 1],
+          board[rowIndex + 2][columnIndex + 2],
+          board[rowIndex + 3][columnIndex + 3]
+        ])
       ) {
         details = {
           colour: cell,
-          coords: [
-            [rowIndex, columnIndex],
-            [rowIndex + 1, columnIndex + 1],
-            [rowIndex + 2, columnIndex + 2],
-            [rowIndex + 3, columnIndex + 3]
-          ]
+          coords: zip(
+            range(rowIndex, rowIndex + 4),
+            range(columnIndex, columnIndex + 4)
+          )
         };
       }
     });
@@ -96,19 +89,19 @@ const diagonalDownWinDetails = board => {
     row.forEach((cell, columnIndex) => {
       if (
         rowIndex >= 3 &&
-        cell &&
-        cell === board[rowIndex - 1][columnIndex + 1] &&
-        cell === board[rowIndex - 2][columnIndex + 2] &&
-        cell === board[rowIndex - 3][columnIndex + 3]
+        fourInARow([
+          cell,
+          board[rowIndex - 1][columnIndex + 1],
+          board[rowIndex - 2][columnIndex + 2],
+          board[rowIndex - 3][columnIndex + 3]
+        ])
       ) {
         details = {
           colour: cell,
-          coords: [
-            [rowIndex, columnIndex],
-            [rowIndex - 1, columnIndex + 1],
-            [rowIndex - 2, columnIndex + 2],
-            [rowIndex - 3, columnIndex + 3]
-          ]
+          coords: zip(
+            range(rowIndex, rowIndex - 4, -1),
+            range(columnIndex, columnIndex + 4)
+          )
         };
       }
     });
