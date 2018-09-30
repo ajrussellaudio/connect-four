@@ -4,11 +4,6 @@ import { makeBoard } from '../';
 
 import { boardFromBrief } from './testBoards';
 
-describe('checkWin', () => {
-  it('should return the winning colour');
-  it('should return the coordinates of the winning line');
-});
-
 describe('makeBoard', () => {
   it('converts a string representing a board to an array of arrays', () => {
     const boardArrays = [
