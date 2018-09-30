@@ -1,4 +1,4 @@
-export const boardFromBrief = `
+export const diagonalRedVictory = `
   [ ][ ][ ][ ][ ][ ][ ]
   [ ][ ][ ][ ][ ][ ][ ]
   [ ][ ][ ][ ][R][ ][ ]

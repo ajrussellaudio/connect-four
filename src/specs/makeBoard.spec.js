@@ -2,7 +2,7 @@ import { expect } from 'chai';
 
 import { makeBoard } from '../';
 
-import { boardFromBrief } from './testBoards';
+import { diagonalRedVictory } from './testBoards';
 
 describe('makeBoard', () => {
   it('converts a string representing a board to an array of arrays', () => {
@@ -14,6 +14,6 @@ describe('makeBoard', () => {
       [null, null, 'R', 'Y', 'R', 'Y', null],
       [null, 'R', 'Y', 'Y', 'R', 'Y', 'R']
     ];
-    expect(makeBoard(boardFromBrief)).to.eql(boardArrays);
+    expect(makeBoard(diagonalRedVictory)).to.eql(boardArrays);
   });
 });
