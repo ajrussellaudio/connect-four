@@ -32,7 +32,10 @@ describe('checkWin', () => {
       expect(colour).to.equal('Y');
     });
 
-    it('should return the coordinates of the winning line');
+    it('should return the coordinates of the winning line', () => {
+      const { coords } = checkWin(board);
+      expect(coords).to.eql([[0, 2], [0, 3], [0, 4], [0, 5]]);
+    });
   });
 
   it('should return the winning colour, diagonal');

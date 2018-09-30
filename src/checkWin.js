@@ -1,7 +1,10 @@
-import { transpose } from './manipulations';
+import { transpose, reverse } from './manipulations';
 
 export default board => {
-  return horizontalWinDetails(board) || verticalWinDetails(board);
+  const reversedBoard = reverse(board);
+  return (
+    horizontalWinDetails(reversedBoard) || verticalWinDetails(reversedBoard)
+  );
 };
 
 const horizontalWinDetails = board => {
@@ -15,6 +18,12 @@ const horizontalWinDetails = board => {
         cell === row[columnIndex + 3]
       ) {
         details.colour = cell;
+        details.coords = [
+          [rowIndex, columnIndex],
+          [rowIndex, columnIndex + 1],
+          [rowIndex, columnIndex + 2],
+          [rowIndex, columnIndex + 3]
+        ];
       }
     });
   });
