@@ -29,3 +29,11 @@ export const diagonalDownwardsYellowVictory = `
   [ ][R][Y][ ][ ][ ][ ]
   [ ][R][Y][Y][ ][ ][ ]
   [ ][R][Y][R][Y][ ][ ]`;
+
+export const noVictory = `
+  [ ][ ][ ][ ][ ][ ][ ]
+  [ ][ ][ ][ ][ ][ ][ ]
+  [ ][ ][ ][ ][ ][ ][ ]
+  [ ][R][Y][ ][ ][ ][ ]
+  [ ][R][Y][R][ ][ ][ ]
+  [ ][R][Y][R][Y][ ][ ]`;

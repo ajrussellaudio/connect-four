@@ -1,12 +1,17 @@
 import { transpose, reverse } from './manipulations';
 
 export default board => {
+  const defaultDetails = {
+    colour: null,
+    coords: null
+  };
   const reversedBoard = reverse(board);
   return (
     horizontalWinDetails(reversedBoard) ||
     verticalWinDetails(reversedBoard) ||
     diagonalUpWinDetails(reversedBoard) ||
-    diagonalDownWinDetails(reversedBoard)
+    diagonalDownWinDetails(reversedBoard) ||
+    defaultDetails
   );
 };
 
@@ -108,6 +113,5 @@ const diagonalDownWinDetails = board => {
       }
     });
   });
-  console.log(details);
   return details;
 };

@@ -6,7 +6,8 @@ import {
   verticalRedVictory,
   horizontalYellowVictory,
   diagonalUpwardsRedVictory,
-  diagonalDownwardsYellowVictory
+  diagonalDownwardsYellowVictory,
+  noVictory
 } from './testBoards';
 
 describe('checkWin', () => {
@@ -79,6 +80,24 @@ describe('checkWin', () => {
     it('should return the coordinates of the winning line', () => {
       const { coords } = checkWin(board);
       expect(coords).to.eql([[3, 1], [2, 2], [1, 3], [0, 4]]);
+    });
+  });
+
+  describe('no victory', () => {
+    let board;
+
+    beforeEach(() => {
+      board = makeBoard(noVictory);
+    });
+
+    it('should return null for the colour', () => {
+      const { colour } = checkWin(board);
+      expect(colour).to.be.null;
+    });
+
+    it('should return null for coordinates', () => {
+      const { coords } = checkWin(board);
+      expect(coords).to.be.null;
     });
   });
 });
