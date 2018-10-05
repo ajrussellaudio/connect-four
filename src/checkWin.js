@@ -1,4 +1,3 @@
-import { reverse } from './manipulations';
 import {
   horizontalWinDetails,
   verticalWinDetails,
@@ -14,12 +13,11 @@ export default board => {
     colour: null,
     coords: null
   };
-  const reversedBoard = reverse(board);
   return (
-    horizontalWinDetails(reversedBoard, fourInARow) ||
-    verticalWinDetails(reversedBoard, fourInARow) ||
-    diagonalUpWinDetails(reversedBoard, fourInARow) ||
-    diagonalDownWinDetails(reversedBoard, fourInARow) ||
+    horizontalWinDetails(board, fourInARow) ||
+    verticalWinDetails(board, fourInARow) ||
+    diagonalUpWinDetails(board, fourInARow) ||
+    diagonalDownWinDetails(board, fourInARow) ||
     defaultDetails
   );
 };
